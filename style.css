@@ -1,0 +1,291 @@
+html,body{height:100%}
+img{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+.wrapper {
+    
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+.card {
+    width:150px;
+    height:300px;
+    background-color: teal;
+    margin: 4px 5px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0px auto;
+   }
+
+@media (max-width:1200px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media (max-width:991px) {
+    .container {
+        max-width: 750px;
+    }
+}
+
+@media all and (max-width:767px) {
+    .container {
+        max-width: none;
+    }
+    .main_row{
+        flex-direction: column;
+    }
+   /*  .wrapper{
+        align-items: center;
+    } */
+}
+
+.content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #d3d3d3;
+}
+
+.title {
+    background-color: rgb(88, 88, 88);
+    padding: 1% 0.5%;
+}
+
+.title_row {
+    display: flex;
+    justify-content: space-between;
+    color: whitesmoke;
+    margin: 0px 0px 1% 0px;
+    align-items: center;
+}
+
+.title_story {
+    font-size: 170%;
+}
+
+.title_user {
+    font-size: 100%;
+}
+
+.user_logo {}
+
+.footer {}
+
+.fotter_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    
+    flex: 1 1 auto;
+    margin-bottom: 2%;
+}
+
+.container {}
+
+.main_title {}
+
+.main_row {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+
+.main_table {
+    width: 70%;
+    display: flex;
+    }
+
+.main_table_raw {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main_side {
+    width: 250px;
+}
+
+.main_side_raw {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info {
+    width: 100%;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.info_raw {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.info_title {
+    width: 100%;
+    text-align:center;
+    color:whitesmoke;
+    background-color: rgb(88, 88, 88) ;
+}
+
+.info_timer { width: 100%; 
+    padding-left: 4px;}
+
+.info_timer_raw {
+    display: flex;
+    font-display: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info_timer_text {}
+
+.info_timer_time {
+    padding-right: 8px;
+    font-weight: bold;
+    color: rgb(88, 88, 88);
+}
+
+.timer_logo {
+    height: 18px;
+    width: 18px;
+}
+
+.users {
+    word-break: break-all;
+}
+.users_row {
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+
+.user_logo {
+    
+}
+
+.info_actions {
+    width: 100%;
+}
+
+.info_actions_raw {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    }
+
+.info_buttons {
+    width: 45%;
+    background-color: rgb(88, 88, 88);
+    color: ghostwhite;
+    border-radius: 3px;
+}
+
+.side_link {
+    margin-top: 20px;
+    background-color: whitesmoke;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.side_link_raw {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side_link_title {}
+
+.side_link_text {
+    text-align: center;
+    color: gray;
+    word-break: break-all;
+}
+
+.side_link_button {
+    width: 75%;
+    background-color: rgb(88, 88, 88);
+    color: ghostwhite;
+    border-radius: 3px;
+}
+
+.bottom {
+      
+}
+
+.bottom_row {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom_title {
+    background-color: honeydew;
+    border: 1px solid black;
+    
+}
+
+.bottom_title_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom_title_tab {
+    width: 40%;
+}
+
+.bottom_title_tab_row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.bottom_title_actions {
+    width: 30%;
+    align-self: flex-end;
+}
+.bottom_title_actions_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    
+}
+.bottom_title_actions_buttons_row {
+    display: flex;   
+}
+.add_new {}
+
+.icon {}
+
+.edit {}
+
+.bottom_title_storys {
+    background-color: honeydew;
+    border: 1px solid black;
+    
+}
+
+
+.story {}
