@@ -1,0 +1,27 @@
+- var users = ['Crown','Witch','Lion']
+- var buttons = ['Reset timer', 'Finish']
+- var title = 'Waiting for vote'
+- var currentTime = '22:22:10'
+.main_side
+    .main_side_raw
+        .info
+            .info_raw
+                .info_title #{title}
+                .info_timer
+                    .info_timer_raw
+                        .info_timer_text Remains
+                        .info_timer_time
+                            img.timer
+                .users
+                    .users_row
+                        -//template(id="userTmpl")
+                           -// .user
+                .info_actions
+                    .info_actions_raw
+                        for i in buttons
+                            button.info_buttons.master_only.page(id=`${i}`) #{i}
+        .side_link
+            .side_link_raw
+                .side_link_title Invite new member
+                .side_link_text dsfdsfdsfdskflkdsfldskfldskfldskflkdslfkdsfldskfldskfldskf
+                button.side_link_button Copy URL

@@ -1,11 +1,14 @@
 html,body{height:100%}
-.page {
-    display: none;
-}
 img{
     height: 25px;
     width: 25px;
     border-radius: 50%;
+}
+.page {
+    display: none;
+}
+.active {
+    display: block;
 }
 .wrapper {
     

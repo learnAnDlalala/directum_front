@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title Room
+        meta(charset="utf-8")
+        meta(name="viewport" 
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+        link(rel="stylesheet" href="style.css")
+    body
+        
+        .wrapper
+            button.test TEST
+            include _enter.pug
+            include _rooms.pug
+            include _content.pug
+            template(id="storyTmpl")
+                li.story
+            template(id="roomListTmpl")
+                .room
+            template(id= "cardTmpl")
+                .card 23
+            template(id="userTmpl")
+                .user
+            template(id="statsTmpl")
+                .stats_subject
+                .stats_average
+            template(id="statsListTmpl")
+                li.user_vote
+            .footer
+                .container
+                    .footer_row
+                        .footer_text povered by
+        script(src="js/main.js")
