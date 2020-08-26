@@ -1,6 +1,8 @@
 import { utils } from "./utils";
 import connectionSignalR from "./signalR";
 import {getCardsInDeck} from './services';
+import {chooseCard} from './services'
+import {Vote, Push} from './handlers.js'
 
 export const showRooms = async (roomArray)=>{
     const tmpl = document.getElementById('roomListTmpl').content;
@@ -22,11 +24,13 @@ export const showCards = async (id)=>{
     cardList.innerHTML="";
     /* await cleanList (cardList,'card'); */
     const clone = tmpl.cloneNode(true).querySelector('.card');
-    await Deck.cards.forEach(el=>{
+    Deck.cards.forEach(el=>{
         clone.innerText = el.value;
-        clone.setAttribute('value',`${el.value}`);
+        clone.setAttribute('value',el.value);
+        //clone.addEventListener('click',()=>{alert('!!!');});
+        //clone.addEventListener('click',Push);
         cardList.appendChild(clone.cloneNode(true));
-    })
+    })     
 }
 export const showUsers = async (userArray)=>{
     const tmpl = document.getElementById('userTmpl').content;
@@ -95,19 +99,41 @@ const renderOwnerButtons = async (roomData)=> {
     }
    
 }
-const renderStats = async (roundStats)=>{
-    const statsList = document.getElementById('statsListTmpl').content;
-    const table = document.querySelector('.main_table_raw');
+export const renderStats = async (roundStats)=>{
+     const statsList = document.getElementById('statsListTmpl').content;
+    /* const table = document.querySelector('.main_table_raw');
     table.innerHTML="";
     const clone = statsList.cloneNode(true).querySelector('.user_vote');
     await roomArray.forEach(el => {
         clone.innerText = `${roundStats.cards.username = roundStats.cards.cardvalue}`
         roomsList.appendChild(clone.cloneNode(true));
-    });
+    });  */
+    console.log(roundStats);
+    const table = document.querySelector('.main_table_raw');
+    table.innerHTML="";
+    const statsPol = document.createElement("div");
+    statsPol.textContent = roundStats.result;
+
+    statsPol.classList.add('stats_class');
+    table.appendChild(statsPol);
+    
+    const clone = statsList.cloneNode(true).querySelector('.user_vote');
+    /* await roundStats.cards.forEach(el => {
+        clone.innerText = `${roundStats.cards.username = roundStats.cards.cardvalue}`
+        statsList.appendChild(clone.cloneNode(true));
+    }); */
+    const arr = [1,2,3,4,5,6,7,8,9];
+    arr.forEach(el=>{
+
+        clone.innerText = `sdsdsds  !`;
+        statsPol.appendChild(clone.cloneNode(true));
+    })
+    
 }
 const renderTime = async (time)=>{
-    const timer = document.querySelector('.time'); 
+    const timer = document.querySelector('.info_timer_time'); 
     timer.innerText = parseTime(time);
+    console.log(time);
     
 }
 
@@ -120,9 +146,24 @@ const parseTime = (time)=>{
     
 }
 const renderTimer = async (data)=>{
-    const timerValue = data.timer*1;
-    if (timerValue >0) {
+    const timerValue = 30;
+    if (timerValue > 0) {
         let timer = setInterval(renderTime(timerValue),1000);
         setTimeout(()=> clearInterval(timer), timerValue);
     }
 }
+export const renderStart = async (data)=>{
+    console.log ('reNDER start')
+    showCards(data.deckID);
+    addEvent();
+    await renderTimer();
+}
+
+export const addEvent = async ()=>{
+    const cards = document.querySelectorAll('.cards');
+    cards.forEach(el=>{el.addEventListener('click',(e)=>{
+        e.preventDefault();
+        const value = el.getAttribute('value');
+        Vote(value);
+    })
+})}

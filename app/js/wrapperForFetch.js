@@ -1,7 +1,7 @@
 /* const { configure } = require("babelify"); */
 
 export const client = async function (endpoint, {body, ...customConfig}={}) {
-    const headers = {'content-type': 'application/json'};
+    const headers = {'content-type': 'application/json', 'Accept': 'application/json','mode': 'no-cors'};
     const config = {
         method: body? 'POST' : 'GET',
         credentials: 'include',

@@ -60,6 +60,7 @@ gulp.task('build',gulp.parallel(pugModify,stylesModify,scriptModify));
 gulp.task('dev',gulp.series('build',oversee));
 gulp.task('pug',pugModify);
 gulp.task('script',scriptModify);
+gulp.task('style',stylesModify);
 gulp.task('test',()=>{
     console.log('TEST!')
 })

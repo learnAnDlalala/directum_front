@@ -15,17 +15,19 @@ export const createNewRoom = async (roomName, userID)=>{
 export const createNewUser = async (userName)=>{
     const data = {name: userName};
     const user = await client('user/auf',{body:data});
+    console.log (user)
+    alert(user)
     return user;
 }
 export const startRound = async (theme )=> {
-    const data = { roomID : getUrlId(), deckID : 1 , subject : theme , timer : 30};
+    const data = { roomID : getUrlId(), deckID : 1 , subject : theme , timer : 120};
     await client('round',{body : data});
 }
 export const enterRoom = async ()=>{
-    const id = getUrlId();
+    const roomId = getUrlId();
     const data ={id : utils.UserID}
     console.log ('id===',utils.UserID);
-    const result = await client(`room/${id}`,{body:data});
+    const result = await client(`room/${roomId}`,{body:data});
     return result;
 }
 export const getRoomList = async ()=>{
@@ -36,9 +38,6 @@ export const getUserList = async ()=> {
     let idRoom = getUrlId();
     let userList = await client(`room/${idRoom}`);
     return userList;
-}
-export const getDeck = async ()=>{
-    
 }
 export const getRoundInfo = async ()=>{
     let idRoom = getUrlId();
@@ -51,21 +50,14 @@ export const endRound = async (idRound)=> {
 }
 export const restartRound = async (idRound)=>{
     const data = {id: idRound};
-    client ('round/restart', {body:data})
+    await client ('round/restart', {body:data})
 }
 
-export const chooseCard = async (idCard)=>{
+export const chooseCard = async (id, value)=>{
+    const data = {UserId : utils.UserID, RoundId : id, CardValue : value}
+    await client('card', {body:data});
+}
 
-}
-export const test = async (userName)=>{
-    return client('room');
-    /* await fetch('http://localhost:62265/api/room',{
-        method: 'GET',
-        body: data,
-        credentials: 'include'
-      });
- */
-}
 export const getCardsInDeck = async (id)=>{
     return await client(`deck/${id}`)
 }
